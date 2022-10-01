@@ -1,0 +1,12 @@
+# Función para obtener los múltiplos de dos cifras de un número dado por parámetro
+def multiplos_de(val):
+  num = 10
+
+  while num < 100:
+    if num % 7 == 0:
+      print(num)
+    num += 1
+
+if __name__ == "__main__":
+  print("PROBLEMA 3\nImprimir los múltiplos de 7 de dos cifras:\n")
+  multiplos_de(7)
