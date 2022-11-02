@@ -1,4 +1,5 @@
 import requests
+import doctest
 
 if __name__ == "__main__":
 
@@ -27,5 +28,17 @@ if __name__ == "__main__":
       get_name = i["name"]
       list_of_domains.append(get_name)
 
-
+  list_of_domains.sort()
   print(list_of_domains)
+
+  # Guardar lista de dominios en un archivo txt
+  file = open("dominios.txt","w")
+  for i in list_of_domains:
+    file.write(i + "\n")
+  file.close()
+
+  """TEST
+  >>>len(list_of_domains)
+  5199
+  """
+  print("\n",doctest.testmod())
