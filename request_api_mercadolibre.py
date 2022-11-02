@@ -6,7 +6,7 @@ if __name__ == "__main__":
   list_of_domains = []
   
   # Url sobre la que quiero trabajar
-  url = "https://api.mercadolibre.com/catalog_domains"
+  url = "https://api.mercadolibre.com/catalog_domains/"
   
   # Me devuelve un objeto de tipo response
   response = requests.get(url)
@@ -20,7 +20,12 @@ if __name__ == "__main__":
     # Obtengo id con la clave id
     get_id = i["id"]
 
-    list_of_domains.append(get_id)
+    # Trabajo sobre los CBT para obtener el dominio del "name" (en ingles)
+    if get_id[:4] == "CBT-":
+
+      # Obtengo y agrego los dominios ("name") a la lista correspondiente
+      get_name = i["name"]
+      list_of_domains.append(get_name)
 
 
   print(list_of_domains)
