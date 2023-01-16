@@ -1,0 +1,22 @@
+Wordle (https://es.wikipedia.org/wiki/Wordle) es un juego de palabras que se ha hecho popular en los últimos años. El mismo consiste en adivinar una palabra de cinco letras en un máximo de seis intentos. Para hacerlo, el jugador debe escribir 5 letras ocupando los cinco casilleros donde estaría cada letra que compondría la palabra. El juego le indica, pintando los casilleros con colores, cuán cerca estuvo de acertar la palabra. El código de colores es el siguiente, si el casillero está pintado de...:
+1) gris: la letra que ocupa el casillero no está presente en la palabra.
+2) amarillo: la letra que ocupa el casiilero está presente en la palabra, pero no en esa posición.
+3) verde: la letra que ocupa el casillero está presente en esa posición de la palabra.
+La imagen a continuación ejemplifica una partida:
+
+
+
+Realizá un programa que informe los aciertos ante un intento de palabra. En particular, imprimir el resultado de ingresar las palabras FUMAR, MUNIR, MUNIO y MUNDO cuando la palabra es MUNDO. El output debería ser:
+El resultado de FUMAR es: GRIS-VERDE-AMARILLO-GRIS-GRIS
+El resultado de MUNIR es: VERDE-VERDE-VERDE-GRIS-GRIS
+El resultado de MUNIO es: VERDE-VERDE-VERDE-GRIS-VERDE
+El resultado de MUNDO es: VERDE-VERDE-VERDE-VERDE-VERDE
+
+
+Solución 1
+Vamos a definir tres funciones para resolver este ejercicio. La primera permite evaluar el color que le corresponde a una letra (ocupando una posición determinada) en relación a la palabra incógnita. La segunda devuelve los colores que corresponden a cada letra de una palabra propuesta. La tercera permite presentar los colores con el formato separado con guiones.
+Lo primero que vamos a hacer, antes de ocuparnos de las funciones, es definir una variable global cuyo valor sea el string de la palabra incógnita.
+Hecho esto, podemos definir la función que evalúa el color de una letra. Esta tomará como parámetros la letra y su posición en la palabra propuesta. Primero, vamos a definir una variable que indique la letra de la palabra propuesta que ocupa la misma posición que la letra evaluada. Luego, planteamos un condicional if: si la letra evaluada no está contenida en la palabra incógnita, el color será gris; caso contrario, se ingresa a un nuevo condicional. En este caso, si la letra evaluada es igual a la letra que ocupa la misma posición en la palabra incógnita, el color será verde; si no, será amarillo. La función debe volver el color como resultado.
+La segunda función evalúa los colores de una palabra propuesta. Esta última es el único parámetro. Para lograrlo, genera una lista vacía para guardar los colores. Después, con un loop for, evalúa cada letra de la palabra propuesta (usando la primera función), y agrega el color obtenido a la lista. Finalmente, devuelve la lista que contiene los colores.
+La última función toma por parámetro la palabra propuesta. Primero, genera la lista de colores correspondientes y, después, un string con el formato exigido usando el método join(). Este último es el que devuelve.
+Para resolver los casos propuestos en el enunciado, vamos a generar una lista con las palabras. Con un loop for, vamos a encontrar la solución para cada una usando la última función e imprimiendo con el formato adecuado.
