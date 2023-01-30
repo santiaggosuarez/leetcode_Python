@@ -10,7 +10,6 @@ data = requests.get(url)
 list_result_ids = []
 list_permalink = []
 list_titles = []
-list_rim_diameter = []
 
 # Si la página no está caída sigo realizando consultas (si da 400 por ej es ERROR)
 if data.status_code == 200:
@@ -39,8 +38,7 @@ for id in list_result_ids:
 
 # Esta linea convierte dos listas a diccionario, no la uso por el momento
 dict_ids_and_permalink = dict(zip(list_result_ids, list_permalink))
-print(list_rim_diameter)
-print(len(list_rim_diameter))
+
 # Imprimo cada dato en las listas separados por comas para copiarlo en formato csv
-#for id, link, title in zip(list_result_ids, list_permalink, list_titles):
-#  print(id, link, title, sep=",")
+for id, link, title in zip(list_result_ids, list_permalink, list_titles):
+  print(id, link, title, sep=",")
