@@ -3,7 +3,9 @@ import requests
 if __name__ == "__main__":
 
   # Dirección que quiero consultar
-  url = "https://api.mercadolibre.com/sites/MLC/searchbackend?q=neumaticos"
+  site = "MLC"
+  query = "neumaticos"
+  url = f"https://api.mercadolibre.com/sites/{site}/searchbackend?q={query}"
   
   # Variable para guardar los datos que consulté
   data = requests.get(url)
@@ -34,8 +36,10 @@ if __name__ == "__main__":
       data = data.json()
   
       # Obtengo la información que quiero y la agrego a la lista correspondiente
-      list_permalink.append(data["permalink"])
-      list_titles.append(data["title"])
+      permalink = data["permalink"]
+      title = data["title"]
+      list_permalink.append(permalink)
+      list_titles.append(title)
           
   
   # Esta linea convierte dos listas a diccionario, no la uso por el momento
