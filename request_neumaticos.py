@@ -1,10 +1,7 @@
 import requests
 
-if __name__ == "__main__":
-
+def get_data(site, query):
   # Dirección que quiero consultar
-  site = "MLC"
-  query = "neumaticos"
   url = f"https://api.mercadolibre.com/sites/{site}/searchbackend?q={query}"
   
   # Variable para guardar los datos que consulté
@@ -68,5 +65,12 @@ if __name__ == "__main__":
   dict_ids_and_permalink = dict(zip(list_result_ids, list_permalink))
   
   # Imprimo cada dato en las listas separados por comas para copiarlo en formato csv
+  print(query)
   for id, link, title, size, diameter in zip(list_result_ids, list_permalink, list_titles, list_tire_size, list_rim_diameter):
     print(query, id, link, title, size, diameter, sep=",")
+  print("-----","-----","-----","-----","-----","-----", sep=",")
+  
+
+if __name__ == "__main__":
+
+  get_data("MLC","NEUMATICOS")
