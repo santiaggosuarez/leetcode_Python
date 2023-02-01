@@ -69,4 +69,4 @@ if __name__ == "__main__":
   
   # Imprimo cada dato en las listas separados por comas para copiarlo en formato csv
   for id, link, title, size, diameter in zip(list_result_ids, list_permalink, list_titles, list_tire_size, list_rim_diameter):
-    print(id, link, title, size, diameter, sep=",")
+    print(query, id, link, title, size, diameter, sep=",")
